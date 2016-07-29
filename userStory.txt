@@ -1,0 +1,9 @@
+As a user, I should...
+
+- Be able to view legible lyrics on a page
+- Be able to type in the remainder of lyrics
+- Be able to submit the lyrics I typed
+- View "Correct!" or "Incorrect!" based off of my submitted lyrics
+- Have the ability to move onto the next lyrics independent of my correct or incorrect input
+- Upon game completion, have the option to enter my current location & check karaoke bar, piano bar, or related to view nearby options
+- Upon game completion, have the ability to restart the game
