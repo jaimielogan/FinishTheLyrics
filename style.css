@@ -1,0 +1,67 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.lyrics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.lyricsInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 4vw;
+  padding-top: 2vw;
+}
+
+.blanks {
+  font-size: 4vw;
+  padding-bottom: 5vw;
+}
+
+.result {
+  font-size: 4vw;
+  padding-bottom: 2vw;
+}
+
+.word1,
+.word2,
+.word3 {
+  text-align: center;
+  font-size: 10vw;
+}
+
+.word1 {
+  margin-right: 2vw;
+}
+
+.word3 {
+  margin-left: 2vw;
+}
+
+.submit {
+  font-size: 1.5vw;
+  padding: .5vw;
+  margin-bottom: 1vw;
+  background-color: lightgrey; 
+}
+
+.quit,
+.continue {
+  background-color: lightgrey;
+}
+
+.quit {
+  margin-right: 1vw;
+  padding: .5vw 1vw .5vw 1vw;
+}
+
+.continue {
+  margin-left: 1vw;
+  padding: .5vw 1vw .5vw 1vw;
+}

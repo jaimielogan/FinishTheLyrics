@@ -1,0 +1,58 @@
+body {
+  background-image: url(https://hd.unsplash.com/uploads/1411606977489000af84a/3ae98ccd);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8vw;
+  padding-bottom: 2vw;
+  color: black;
+  letter-spacing: 5px;
+}
+
+.intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5vw;
+  color: black;
+}
+
+.animatedText {
+  padding-left: 28%;
+  font-size: 5vw;
+  color: black;
+  word-spacing: 80px;
+  padding-bottom: 2vw;
+  white-space:nowrap;
+	overflow: hidden;
+	width: 20em;
+	animation: type 5s steps(40, end);
+}
+
+@keyframes type{
+	from{ width: 0;}
+}
+
+span {
+	animation: blink 1s infinite;
+}
+
+@keyframes blink{
+	to{ opacity: .0;}
+}
+
+.btn-default {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 40% 0 40%;
+  background-color: grey;
+  color: black;
+  font-size: 2vw;
+}
