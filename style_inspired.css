@@ -1,11 +1,12 @@
 body {
   display: flex;
   flex-direction: column;
+  font-family: 'Lato', sans-serif;
 }
 
 .prompt,
 .search,
-h2 {
+.title {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,7 +23,7 @@ h2 {
 }
 
 .prompt,
-h2 {
+.title {
   padding-bottom: 2vw;
 }
 
@@ -41,4 +42,8 @@ h2 {
 .map {
   width:400px;
   height:400px;
+}
+
+.submit {
+  background-color: lightgrey; 
 }
