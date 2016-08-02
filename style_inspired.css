@@ -1,0 +1,44 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.prompt,
+.search,
+h2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.location {
+  text-align:center;
+}
+
+.form-group,
+.location {
+  padding-top: 2vw;
+}
+
+.prompt,
+h2 {
+  padding-bottom: 2vw;
+}
+
+.class {
+  text-align: center;
+}
+
+.center {
+  position: static;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.map {
+  width:400px;
+  height:400px;
+}
