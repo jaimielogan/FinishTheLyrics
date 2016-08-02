@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="yelp.js"></script>
+    <!-- <script type="text/javascript" src="http://www.google.com/jsapi?&key=AIzaSyD0F5eU0w96rtOLVaA7yAAwQ_YtTK4BFLc"></script>
+    <script type="text/javascript" charset="utf-8"> google.load("maps","2.x")</script> -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/paper/bootstrap.min.css" rel="stylesheet" integrity="sha384-2mX2PSpkRSXLQzmNzH3gwK6srb06+OfbDlYjbog8LQuALYJjuQ3+Yzy2JIWNV9rW" crossorigin="anonymous">
+    <link rel="stylesheet" href="style_inspired.css">
+  </head>
+  <body>
+
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="home.html">Finish The Lyrics</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="index.html">Play</a></li>
+            <li class="active"><a href="FeelingInspired.html">Inspired?<span class="sr-only">(current)</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- End of Nav Bar -->
+
+    <!-- Form -->
+    <h2>Feeling Inspired?</h2>
+    <h5 class = "prompt">Enter your location below to find a karaoke bar nearby!</h5>
+    <form class = "search">
+      <input type = "text" class = "location">
+      <div class="form-group">
+        <button class="btn btn-default submit" type="button">Search</button>
+      </div>
+    </form>
+    <!-- End of Form -->
+
+    <!-- Map -->
+    <div class = "center">
+      <div class = "map" id="map"></div>
+    </div>
+
+    <!-- End of Map -->
+
+    <!-- API Url Call -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0F5eU0w96rtOLVaA7yAAwQ_YtTK4BFLc&" async defer></script>
+  </body>
+</html>
