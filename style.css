@@ -1,9 +1,13 @@
 body {
   display: flex;
   flex-direction: column;
+  font-family: 'Lato', sans-serif;
 }
 
-.lyrics {
+.lyrics,
+.completion,
+.score,
+.center {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,6 +19,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   font-size: 4vw;
   padding-top: 2vw;
 }
@@ -33,7 +38,6 @@ body {
 .word2,
 .word3 {
   text-align: center;
-  font-size: 10vw;
 }
 
 .word1 {
@@ -48,20 +52,49 @@ body {
   font-size: 1.5vw;
   padding: .5vw;
   margin-bottom: 1vw;
-  background-color: lightgrey; 
+  background-color: lightgrey;
 }
 
 .quit,
-.continue {
+.continue,
+.restart,
+.inspired {
   background-color: lightgrey;
 }
 
 .quit {
-  margin-right: 1vw;
+  margin-right: 2vw;
   padding: .5vw 1vw .5vw 1vw;
 }
 
-.continue {
-  margin-left: 1vw;
+.continue,
+.inspired {
+  margin-left: 2vw;
   padding: .5vw 1vw .5vw 1vw;
+}
+
+.footer {
+  bottom: 0;
+  margin-top: 15%
+}
+
+.completion {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  margin-top: 10%;
+}
+
+.gameover,
+.score,
+.continueOptions,
+.description  {
+  margin-bottom: 2vw;
+}
+
+.score {
+  text-align: center;
 }

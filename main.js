@@ -1,18 +1,23 @@
 $(document).ready(function(){
 
+  $(".completion").hide();
+
   //--------------------------------------------//
   //----- Function & Variable Definitions -----//
 
   // Song Definitions -- Defined by Track_ID
-  var songs = ["35215928", "31192234", "60244658", "70652942", "13990180", "2639370", "85167406", "15953433", "48140529", "35360837", "684941", "90401994", "3449321", "3599972", "51127613"];
+  // var songs = ["35215928", "31192234", "60244658", "70652942", "13990180", "2639370", "85167406", "15953433", "48140529", "35360837", "684941", "90401994", "3449321", "3599972", "51127613"];
+  var songs = ["35215928", "31192234"];
   // Define max length for lyrics manipulation
-  var maxLength = [18, 11, 10, 17, 17, 8, 22, 21, 12, 10, 17, 20, 18, 14, 25];
+  // var maxLength = [18, 11, 10, 17, 17, 8, 22, 21, 12, 10, 17, 20, 18, 14, 25];
+  var maxLength = [18, 11];
   // Define Variables
   var lyrics = [];
   var lyricsClue = [];
   var lyricsAnswer = [];
   var counter = 0;
   var input = "";
+  var score = 0;
 
   //--------------------------------//
   //----- Lyrics Manipulation -----//
@@ -51,6 +56,7 @@ $(document).ready(function(){
     // Check if the answer and input  match
     if(input === answer){
       $(".result").text("Correct!");
+      score ++;
     }
     else {
       $(".result").text("Incorrect!");
@@ -97,19 +103,25 @@ $(document).ready(function(){
       // Submit Lyrics Guess
       $(".submit").click(function(event){
         event.preventDefault();
+        $(".submit").hide();
         checkAnswer(counter);
-      });
-
-      $(".quit").click(function(event){
-        console.log("We quit");
       });
 
       $(".continue").click(function(event){
         event.preventDefault();
-          // Increase counter and call showLyrics to show next lyric
-          counter ++;
+        $(".submit").show();
+        // Increase counter and call showLyrics to show next lyric
+        counter ++;
+        if (counter < songs.length){
           showLyrics(counter);
-        });
+        }
+        else {
+          // When the song loops are completed, show the final score and the option to restart,
+          $(".lyrics").hide(500);
+          $(".completion").show(500);
+          $(".score").text("Congratulations, you have completed the game! Your final score was " + score + " out of " + songs.length + "!");
+        }
+      });
 
     });
 
