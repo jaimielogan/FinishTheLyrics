@@ -24,7 +24,7 @@ function loop(data){
     names.push(data.businesses[i].name);
     lat.push(data.businesses[i].location.coordinate.latitude);
     long.push(data.businesses[i].location.coordinate.longitude);
-    links.push(data.businesses[0].url);
+    links.push(data.businesses[i].url);
   }
 }
 
