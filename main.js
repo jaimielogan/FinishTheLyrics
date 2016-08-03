@@ -1,22 +1,9 @@
 $(document).ready(function(){
 
-  $('body').on('keydown', 'input, select, textarea', function(e) {
-    var self = $(this),
-    form = self.parents('form:eq(0)'),
-    focusable,
-    next;
+  console.log(config.apiKey_lyrics);
 
-    if (e.keyCode == 32) {
-        focusable = form.find('input,text').filter(':visible');
-        next = focusable.eq(focusable.index(this)+1);
-        if (next.length) {
-            next.focus();
-        }
-        return false;
-    }
-});
-
-  // $(".completion").hide();
+  // Hide the Completion Pop-Up immediately
+  $(".completion").hide();
 
   //--------------------------------------------//
   //----- Function & Variable Definitions -----//
@@ -74,7 +61,7 @@ $(document).ready(function(){
     input = ($(".word1").val() + $(".word2").val() + $(".word3").val()).replace(/[\W_]/g,"").toLowerCase();
     answer = lyricsAnswer[level][counter].replace(/[\W_]/g,"").toLowerCase();
 
-    // Check if the answer and input  match
+    // Check if the answer and input match
     if(input === answer){
       $(".result").text("Correct!");
       score ++;
@@ -94,22 +81,39 @@ $(document).ready(function(){
     for (var m in data){
       returnedLyrics.push((JSON.parse(data[m]).message.body.lyrics.lyrics_body));
     }
-    console.log(returnedLyrics);
   }
+
+  // Within the lyrics input, allow the spacebar to be used to move onto next text input
+  $('body').on('keydown', 'input, select, textarea', function(e) {
+    var self = $(this),
+    form = self.parents('form:eq(0)'),
+    focusable,
+    next;
+    if (e.keyCode == 32) {
+      focusable = form.find('input,text').filter(':visible');
+      next = focusable.eq(focusable.index(this)+1);
+      if (next.length) {
+        next.focus();
+      }
+      return false;
+    }
+  });
 
   //----------------------------//
   //----- API Musix Match -----//
+  // var urlBase = "http://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey=" + config.apiKey_lyrics + "&track_id=";
+
   // var urlBase = "http://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey=1a27e75bdb2640b7855e3bb00431c1d9&track_id=";
-  //
+
   // var urls = songs.map(function(array){
   //   return urlBase + array;
   // });
-  //
+
   // var promises = urls.map(function(url){
   //   return $.get(url);
   // });
   //
-  //
+
   // Promise.all(promises)
   //   .then(function(data){
   //     findLyrics(data);
