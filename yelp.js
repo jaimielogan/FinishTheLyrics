@@ -33,7 +33,6 @@ function createMarkers(lat,long){
     marker = new google.maps.Marker({
       position: {lat: lat[j], lng: long[j]},
       title: names[j],
-      draggable: true,
       map: map
     });
 
