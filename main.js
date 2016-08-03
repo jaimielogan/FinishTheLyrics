@@ -1,7 +1,5 @@
 $(document).ready(function(){
 
-  console.log(config.apiKey_lyrics);
-
   // Hide the Completion Pop-Up immediately
   $(".completion").hide();
 
@@ -101,13 +99,11 @@ $(document).ready(function(){
 
   //----------------------------//
   //----- API Musix Match -----//
-  // var urlBase = "http://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey=" + config.apiKey_lyrics + "&track_id=";
+  var urlBase = "http://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey=" + config.apiKey_lyrics + "&track_id=";
 
-  // var urlBase = "http://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey=1a27e75bdb2640b7855e3bb00431c1d9&track_id=";
-
-  // var urls = songs.map(function(array){
-  //   return urlBase + array;
-  // });
+  var urls = songs.map(function(array){
+    return urlBase + array;
+  });
 
   // var promises = urls.map(function(url){
   //   return $.get(url);
