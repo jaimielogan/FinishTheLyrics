@@ -1,7 +1,24 @@
 body {
+  background-image: url(https://hd.unsplash.com/photo-1453090927415-5f45085b65c0);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   display: flex;
   flex-direction: column;
   font-family: 'Lato', sans-serif;
+}
+
+.prompt,
+.title {
+  color: #EDE6E7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.search {
+  color: black;
 }
 
 .prompt,
@@ -22,8 +39,7 @@ body {
   padding-top: 2vw;
 }
 
-.prompt,
-.title {
+.prompt {
   padding-bottom: 2vw;
 }
 

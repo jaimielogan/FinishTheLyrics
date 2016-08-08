@@ -7,11 +7,16 @@ body {
 .lyrics,
 .completion,
 .score,
-.center {
+.center,
+.fa {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.fa {
+  font-size: 4vw; 
 }
 
 .lyricsInput {

@@ -1,5 +1,6 @@
 body {
   background-image: url(https://hd.unsplash.com/uploads/1411606977489000af84a/3ae98ccd);
+  /*background-image: url(https://hd.unsplash.com/photo-1447876576829-25dd6c4b3d21);*/
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -12,9 +13,9 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 8vw;
-  color: black;
+  color: #EDE6E7;
   letter-spacing: 5px;
-  border-bottom: 0.5px solid black;
+  border-bottom: 0.5px solid #EDE6E7;
   margin: 0 15% 0 15%;
 }
 
@@ -23,15 +24,15 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 5vw;
-  color: black;
+  color:  #EDE6E7;
   padding-top: 2vw;
 }
 
 .animatedText {
   padding-left: 28%;
   font-size: 5vw;
-  color: black;
-  word-spacing: 80px;
+  color: #EDE6E7;
+  word-spacing: 5vw;
   padding-bottom: 2vw;
   white-space:nowrap;
 	overflow: hidden;

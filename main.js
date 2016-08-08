@@ -46,11 +46,13 @@ $(document).ready(function(){
 
   // Show Lyrics on Page
   function showLyrics(level,counter) {
+    entercount = 0;
     $(".lyricsInput").text(lyricsClue[level][counter]);
     $(".result").text("");
     $(".word1").val("");
     $(".word2").val("");
     $(".word3").val("");
+    $(".word1").focus();
   }
 
   // Check Answer
@@ -105,62 +107,76 @@ $(document).ready(function(){
     return urlBase + array;
   });
 
-  // var promises = urls.map(function(url){
-  //   return $.get(url);
-  // });
-  //
+  var promises = urls.map(function(url){
+    return $.get(url);
+  });
 
-  // Promise.all(promises)
-  //   .then(function(data){
-  //     findLyrics(data);
-  //     lyricManipulation (returnedLyrics, maxLength);
-  //
-  //     //-----------------------//
-  //     //----- Begin Game -----//
-  //
-  //     // Show Clue
-  //     showLyrics(level,counter);
-  //
-  //     // Submit Lyrics Guess
-  //     $(".submit").click(function(event){
-  //       event.preventDefault();
-  //       $(".submit").hide();
-  //       checkAnswer(level,counter);
-  //     });
-  //
-  //     $(".continue").click(function(event){
-  //       event.preventDefault();
-  //       $(".submit").show();
-  //       // Increase counter and call showLyrics to show next lyric
-  //       counter ++;
-  //       if (counter < lyricsClue[level].length){
-  //         showLyrics(level,counter);
-  //       }
-  //       else {
-  //         // Increase level to ensure when showLyrics is called, it goes onto the next level. Restart counter @ 0.
-  //         counter = 0;
-  //         level ++;
-  //         // When the song loops are completed, show the final score and the option to restart,
-  //         $(".lyrics").hide(500);
-  //         $(".completion").show(500);
-  //         $(".score").text("Congratulations, you have completed this level! Your final score was " + score + " out of 5!");
-  //         // Add on "Restart" button click
-  //         if (level < lyricsClue.length){
-  //           // Call showLyrics when the Next Level button is clicked;
-  //           $(".nextLevel").click(function(){
-  //             // Reset score to 0
-  //             $(".completion").hide(500);
-  //             $(".lyrics").show(500);
-  //             score = 0;
-  //             showLyrics(level,counter);
-  //           });
-  //         }
-  //         else {
-  //           $(".nextLevel").hide();
-  //         }
-  //       }
-  //     });
-  //
-  //   });
+
+  Promise.all(promises)
+    .then(function(data){
+      findLyrics(data);
+      lyricManipulation (returnedLyrics, maxLength);
+
+      //-----------------------//
+      //----- Begin Game -----//
+
+      // Show Clue
+      showLyrics(level,counter);
+
+      // On Enter Key, trigger submit button click
+      // On sencond enter key, trigger the continue button click 
+      var entercount = 0;
+      $(".blanks").keydown(function(event){
+        if(event.keyCode == 13 && entercount === 0 ){
+          $(".submit").trigger("click");
+        }
+        else if (event.keyCode == 13 && entercount !== 0){
+          $(".continue").trigger("click");
+        }
+      });
+
+      // Submit Lyrics Guess
+      $(".submit").click(function(event){
+        event.preventDefault();
+        $(".submit").hide();
+        checkAnswer(level,counter);
+        entercount++;
+      });
+
+      $(".continue").click(function(event){
+        entercount = 0;
+        event.preventDefault();
+        $(".submit").show();
+        // Increase counter and call showLyrics to show next lyric
+        counter ++;
+        if (counter < lyricsClue[level].length){
+          showLyrics(level,counter);
+        }
+        else {
+          // Increase level to ensure when showLyrics is called, it goes onto the next level. Restart counter @ 0.
+          counter = 0;
+          level ++;
+          // When the song loops are completed, show the final score and the option to restart,
+          $(".lyrics").hide(500);
+          $(".completion").show(500);
+          $(".score").text("Congratulations, you have completed this level! Your final score was " + score + " out of 5!");
+          // Add on "Restart" button click
+          if (level < lyricsClue.length){
+            // Call showLyrics when the Next Level button is clicked;
+            $(".nextLevel").click(function(){
+              // Reset score to 0, hide the completion pop up and reshow lyrics
+              $(".completion").hide(500);
+              $(".lyrics").show(500);
+              score = 0;
+              showLyrics(level,counter);
+            });
+          }
+          else {
+            $(".nextLevel").hide();
+          }
+        }
+      });
+
+    });
 
 });

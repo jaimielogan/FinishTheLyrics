@@ -26,7 +26,7 @@ function initMap(lat,long) {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: lat[0], lng: long[0]},
     scrollwheel: false,
-    zoom: 10
+    zoom: 12
   });
 }
 
@@ -49,14 +49,32 @@ function createMarkers(lat,long){
   }
 }
 
+//--------------------------//
+//----- Functionality -----//
+
 $(document).ready(function(){
 
+  // Key Down Definitions
+  $(".location").keydown(function(event){
+    if(event.keyCode == 13){
+      event.preventDefault();
+      $(".submit").trigger("click");
+    }
+  });
+
   // Jquery call upon 'submit' button click
-  $(".submit").click(function(){
+  $(".submit").click(function(event){
+    event.preventDefault();
+    // Reset names, lat, long, and links arrays so that map can be reset on every search
+    names = [];
+    lat = [];
+    long = [];
+    links = [];
 
     // Create location variable based on user input
     var location = $(".location").val();
 
+    // Search yelp for karaoke bars, loop through data to populate arrays, and create google maps with results
     $.post("https://galvanize-yelp-api.herokuapp.com/search", {term: "karaoke", location: location})
     .done(function (data) {
       loop(data);
