@@ -101,7 +101,7 @@ $(document).ready(function(){
 
   //----------------------------//
   //----- API Musix Match -----//
-  var urlBase = "http://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey=" + config.apiKey_lyrics + "&track_id=";
+  var urlBase = "https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey=" + config.apiKey_lyrics + "&track_id=";
 
   var urls = songs.map(function(array){
     return urlBase + array;
@@ -124,7 +124,7 @@ $(document).ready(function(){
       showLyrics(level,counter);
 
       // On Enter Key, trigger submit button click
-      // On sencond enter key, trigger the continue button click 
+      // On sencond enter key, trigger the continue button click
       var entercount = 0;
       $(".blanks").keydown(function(event){
         if(event.keyCode == 13 && entercount === 0 ){
