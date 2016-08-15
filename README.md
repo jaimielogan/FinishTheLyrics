@@ -1,6 +1,7 @@
 # FinishTheLyrics
 
 [View Live](https://finish-the-lyrics.firebaseapp.com/)
+
 [View Video](https://www.youtube.com/watch?v=zPtQjVHwTZM&feature=youtu.be)
 
 ### Project Overview
